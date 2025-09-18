@@ -14,6 +14,7 @@ html{
 }
 a{
     color: var(--text-color);
+    text-decoration: none;
 }
 :root{
     --main-color:#0ea5e9;
@@ -35,6 +36,9 @@ span {
 section{
     padding: 9% 15%;
     min-height: 100dvh;
+}
+ul{
+    list-style: none;
 }
 
 /* -----Header Styling----- */
