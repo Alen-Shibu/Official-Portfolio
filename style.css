@@ -53,6 +53,10 @@ header{
     left: 0;
     background-color: rgba(0, 0, 0, 0.3);
     z-index: 1000;
+    transition: 0.3s ease-in;
+}
+.header.hide{
+    transform: translateY(-100%);
 }
 header h1{
     font-size: 3.7rem;
