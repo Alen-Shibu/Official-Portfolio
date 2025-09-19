@@ -388,6 +388,9 @@ box-shadow:
     opacity: 0;
     pointer-events: none;
     transition: opacity 0.3s ease-in;
+    backdrop-filter: blur(6px);    /* blur background */
+   -webkit-backdrop-filter: blur(6px); /* Safari support */
+    z-index: 1000;
 }
 .modal-container.show{
     opacity: 1;
