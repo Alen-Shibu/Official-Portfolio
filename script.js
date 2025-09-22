@@ -83,9 +83,12 @@ window.addEventListener("scroll", () => {
 // Form resetting after submission
 
 const form = document.querySelector("form");
-form.addEventListener("submit", () => {
-  form.reset();
-  if (typeof grecaptcha !== "undefined") {
-    grecaptcha.reset();
-  }
+form.addEventListener("submit", (e) => {
+  setTimeout(() => {
+    form.reset();
+    if (typeof grecaptcha !== "undefined") {
+      grecaptcha.reset();
+    }
+  }, 100); 
 });
+
