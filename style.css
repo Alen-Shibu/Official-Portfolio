@@ -252,7 +252,7 @@ header h1:hover{
     object-fit: cover;
     box-shadow: 0 0 25px var(--main-color);
     transition: 0.4s ease-in-out;
-    animation: upanddown 3s infinite linear;
+    animation: upanddown 4.5s infinite linear;
 }
 @keyframes upanddown {
     0%{
