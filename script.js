@@ -78,14 +78,4 @@ window.addEventListener("scroll", () => {
   scrollCount = currentScroll;
 });
 
-// Form resetting after submission
 
-const form = document.querySelector("form");
-form.addEventListener("submit", (e) => {
-  setTimeout(() => {
-    form.reset();
-    if (typeof grecaptcha !== "undefined") {
-      grecaptcha.reset();
-    }
-  }, 100); 
-});
