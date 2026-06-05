@@ -3,27 +3,27 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Focus Studio — Photography Website | Alen Shibu</title>
+  <title>Focus Studio — Fine Art Photography Portfolio | Alen Shibu</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400&family=Syne:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after {
-      margin: 0; padding: 0;
+      margin: 0;
+      padding: 0;
       box-sizing: border-box;
       text-decoration: none;
       list-style: none;
     }
 
     :root {
-      --bg:       #080808;
-      --surface:  #101010;
-      --panel:    #161616;
-      --gold:     #c9a96e;
-      --gold-dim: #7c6540;
-      --text:     #f0ebe3;
-      --muted:    #7a7068;
-      --border:   rgba(201, 169, 110, 0.15);
+      --bg:      #080808;
+      --surface: #101010;
+      --panel:   #161616;
+      --gold:    #c9a96e;
+      --text:    #f5f5f5;
+      --muted:   #707070;
+      --border:  rgba(255, 255, 255, 0.07);
     }
 
     html { font-size: 62.5%; scroll-behavior: smooth; }
@@ -35,15 +35,14 @@
       overflow-x: hidden;
     }
 
-    /* Grain texture overlay */
+    /* Elegant grain overlay mock */
     body::after {
       content: '';
       position: fixed;
       inset: 0;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+      background: radial-gradient(circle, transparent 20%, var(--bg) 100%), rgba(255,255,255,0.002);
       pointer-events: none;
-      z-index: 9999;
-      opacity: 0.4;
+      z-index: 10;
     }
 
     /* ── Nav ── */
@@ -54,278 +53,162 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 2rem 8rem;
+      padding: 3rem 10rem;
       background: rgba(8, 8, 8, 0.9);
-      backdrop-filter: blur(16px);
+      backdrop-filter: blur(20px);
       border-bottom: 1px solid var(--border);
     }
 
-    .nav-brand {
+    .nav-logo {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 2.2rem;
+      font-size: 2.8rem;
       font-weight: 400;
-      letter-spacing: 0.25rem;
-      color: var(--gold);
-      text-transform: uppercase;
-    }
-
-    .nav-back {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.8rem;
-      font-size: 1.3rem;
-      font-weight: 600;
       letter-spacing: 0.1rem;
-      text-transform: uppercase;
-      color: var(--muted);
-      transition: color 0.2s;
     }
 
-    .nav-back:hover { color: var(--gold); }
+    .nav-logo span { color: var(--gold); }
+
+    .nav-link {
+      font-size: 1.2rem;
+      text-transform: uppercase;
+      letter-spacing: 0.2rem;
+      color: var(--muted);
+      transition: color 0.3s;
+    }
+
+    .nav-link:hover { color: var(--gold); }
 
     /* ── Hero ── */
     .hero {
       min-height: 100vh;
       display: flex;
       flex-direction: column;
-      justify-content: flex-end;
-      padding: 0 8rem 7rem;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 15rem 4rem 10rem;
       position: relative;
-      overflow: hidden;
     }
 
-    /* Decorative large text in background */
-    .hero-bg-text {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(14rem, 22vw, 28rem);
-      font-weight: 300;
-      font-style: italic;
-      color: rgba(201, 169, 110, 0.04);
-      white-space: nowrap;
-      pointer-events: none;
-      user-select: none;
-    }
-
-    /* Vertical rule */
-    .hero::before {
-      content: '';
-      position: absolute;
-      top: 10%;
-      left: 8rem;
-      width: 1px;
-      height: 8rem;
-      background: linear-gradient(to bottom, transparent, var(--gold));
-    }
-
-    .hero-category {
-      font-size: 1.1rem;
-      letter-spacing: 0.4rem;
+    .hero-pre {
+      font-size: 1.3rem;
       text-transform: uppercase;
+      letter-spacing: 0.4rem;
       color: var(--gold);
-      margin-bottom: 2.5rem;
+      margin-bottom: 3rem;
       opacity: 0;
-      animation: fadeUp 0.6s 0.1s forwards;
+      animation: reveal 1s 0.2s forwards;
     }
 
     .hero h1 {
       font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(6rem, 9vw, 13rem);
+      font-size: clamp(6rem, 10vw, 13rem);
       font-weight: 300;
-      line-height: 0.95;
-      margin-bottom: 3rem;
+      line-height: 1.1;
+      letter-spacing: -0.01rem;
+      max-width: 110rem;
+      margin-bottom: 4rem;
       opacity: 0;
-      animation: fadeUp 0.7s 0.2s forwards;
+      animation: reveal 1.2s 0.4s forwards;
     }
 
     .hero h1 em {
       font-style: italic;
+      font-weight: 400;
       color: var(--gold);
     }
 
-    .hero-divider {
-      width: 6rem;
-      height: 1px;
-      background: var(--gold);
-      margin-bottom: 2.5rem;
-      opacity: 0;
-      animation: fadeUp 0.6s 0.35s forwards;
-    }
-
-    .hero-sub {
+    .hero-desc {
       font-size: 1.6rem;
       color: var(--muted);
-      max-width: 55rem;
+      max-width: 58rem;
       line-height: 1.8;
-      margin-bottom: 4rem;
-      font-weight: 400;
+      letter-spacing: 0.02rem;
+      margin-bottom: 5rem;
       opacity: 0;
-      animation: fadeUp 0.6s 0.45s forwards;
+      animation: reveal 1s 0.6s forwards;
     }
 
-    .hero-actions {
+    .hero-links {
       display: flex;
-      gap: 1.4rem;
-      flex-wrap: wrap;
+      gap: 3rem;
       opacity: 0;
-      animation: fadeUp 0.6s 0.6s forwards;
+      animation: reveal 1s 0.8s forwards;
     }
 
-    .btn-gold {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.8rem;
-      padding: 1.3rem 3.2rem;
-      background: var(--gold);
-      color: #000;
-      font-family: 'Syne', sans-serif;
-      font-weight: 700;
-      font-size: 1.3rem;
-      letter-spacing: 0.08rem;
+    .btn-dark {
+      padding: 1.6rem 4rem;
+      background: var(--text);
+      color: var(--bg);
+      font-size: 1.2rem;
+      font-weight: 600;
       text-transform: uppercase;
-      border-radius: 0;
-      transition: transform 0.2s, box-shadow 0.2s;
+      letter-spacing: 0.15rem;
+      transition: background 0.3s, transform 0.3s;
     }
 
-    .btn-gold:hover {
+    .btn-dark:hover {
+      background: var(--gold);
       transform: translateY(-2px);
-      box-shadow: 0 8px 30px rgba(201, 169, 110, 0.25);
     }
 
     .btn-line {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.8rem;
-      padding: 1.3rem 3.2rem;
+      padding: 1.6rem 4rem;
       border: 1px solid var(--border);
       color: var(--text);
-      font-family: 'Syne', sans-serif;
+      font-size: 1.2rem;
       font-weight: 600;
-      font-size: 1.3rem;
-      letter-spacing: 0.08rem;
       text-transform: uppercase;
-      transition: border-color 0.2s, background 0.2s;
+      letter-spacing: 0.15rem;
+      transition: border-color 0.3s;
     }
 
-    .btn-line:hover {
-      border-color: var(--gold);
-      background: rgba(201, 169, 110, 0.06);
-    }
-
-    /* ── Stack row ── */
-    .stack-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.8rem;
-      padding: 3rem 8rem 5rem;
-      border-top: 1px solid var(--border);
-      position: relative;
-      z-index: 1;
-      opacity: 0;
-      animation: fadeUp 0.6s 0.7s forwards;
-    }
-
-    .tag {
-      font-size: 1.1rem;
-      font-weight: 600;
-      letter-spacing: 0.08rem;
-      text-transform: uppercase;
-      padding: 0.5rem 1.4rem;
-      border: 1px solid var(--border);
-      color: var(--gold);
-      background: rgba(201, 169, 110, 0.04);
-    }
+    .btn-line:hover { border-color: var(--gold); }
 
     /* ── Content ── */
-    .content { position: relative; z-index: 1; }
+    .content { position: relative; }
 
     .section {
-      padding: 7rem 8rem;
+      padding: 12rem 10rem;
       border-top: 1px solid var(--border);
     }
 
     .section-label {
-      font-size: 1rem;
-      letter-spacing: 0.4rem;
+      font-size: 1.2rem;
       text-transform: uppercase;
+      letter-spacing: 0.3rem;
       color: var(--gold);
-      margin-bottom: 1.5rem;
+      margin-bottom: 2rem;
     }
 
     .section h2 {
       font-family: 'Cormorant Garamond', serif;
       font-size: 5rem;
-      font-weight: 400;
-      margin-bottom: 4rem;
-    }
-
-    .section h2 em {
-      font-style: italic;
-      color: var(--gold);
-    }
-
-    /* ── Feature list (editorial style) ── */
-    .feature-list {
-      display: flex;
-      flex-direction: column;
-      gap: 0;
-    }
-
-    .feature-row {
-      display: grid;
-      grid-template-columns: 1fr 3fr;
-      gap: 4rem;
-      padding: 3rem 0;
-      border-bottom: 1px solid var(--border);
-      align-items: start;
-    }
-
-    .feature-num {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 5rem;
       font-weight: 300;
-      color: var(--gold-dim);
-      line-height: 1;
+      margin-bottom: 6rem;
     }
 
-    .feature-info h3 {
-      font-size: 1.9rem;
-      font-weight: 700;
-      margin-bottom: 1rem;
-      letter-spacing: 0.03rem;
-    }
-
-    .feature-info p {
-      font-size: 1.5rem;
-      color: var(--muted);
-      line-height: 1.7;
-    }
-
-    /* ── Craft notes ── */
-    .craft-grid {
+    /* Philosophy cards */
+    .craft-showcase {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 2rem;
+      grid-template-columns: repeat(auto-fit, minmax(32rem, 1fr));
+      gap: 4rem;
     }
 
     .craft-card {
-      background: var(--panel);
+      background: var(--surface);
       border: 1px solid var(--border);
-      padding: 3rem;
-      transition: border-color 0.2s;
+      padding: 5rem 4rem;
+      transition: border-color 0.3s;
     }
 
-    .craft-card:hover { border-color: var(--gold); }
+    .craft-card:hover { border-color: rgba(201, 169, 110, 0.3); }
 
     .craft-card h4 {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 2.4rem;
+      font-size: 2.6rem;
       font-weight: 400;
-      color: var(--gold);
-      margin-bottom: 1rem;
+      margin-bottom: 2rem;
     }
 
     .craft-card p {
@@ -334,153 +217,173 @@
       line-height: 1.7;
     }
 
-    /* ── Footer ── */
+    /* ── Studio Photo Gallery Custom Squares ── */
+    .studio-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 4rem;
+      perspective: 1500px;
+      margin-top: 2rem;
+    }
+    .studio-item {
+      position: relative;
+      background: var(--panel);
+      border: 1px solid var(--border);
+      overflow: hidden;
+      aspect-ratio: 1 / 1;
+      cursor: zoom-in;
+      transform-style: preserve-3d;
+      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s;
+    }
+    .studio-item:hover {
+      border-color: var(--gold);
+      transform: translateY(-8px) rotateX(5deg) rotateY(3deg);
+      box-shadow: 0 20px 40px rgba(201, 169, 110, 0.08);
+    }
+    .studio-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .studio-item:hover img {
+      transform: scale(1.04);
+    }
+    .studio-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(8, 8, 8, 0.85);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 3rem;
+      opacity: 0;
+      transform: translateZ(50px) scale(0.95);
+      transition: opacity 0.4s ease, transform 0.4s ease;
+    }
+    .studio-item:hover .studio-overlay {
+      opacity: 1;
+      transform: translateZ(50px) scale(1);
+    }
+    .studio-overlay h4 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.6rem;
+      font-weight: 400;
+      color: var(--gold);
+      margin-bottom: 1rem;
+    }
+    .studio-overlay p {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.3rem;
+      letter-spacing: 0.05rem;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+    .studio-lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(8, 8, 8, 0.98);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.4s ease;
+    }
+    .studio-lightbox:target {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .studio-lightbox img {
+      max-width: 85%;
+      max-height: 80vh;
+      border: 1px solid var(--border);
+      box-shadow: 0 0 60px rgba(0,0,0,0.9);
+    }
+    .studio-lightbox .close-studio-lb {
+      position: absolute;
+      top: 4rem; right: 5rem;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 4rem;
+      font-style: italic;
+      color: var(--muted);
+      transition: color 0.3s;
+    }
+    .studio-lightbox .close-studio-lb:hover { color: var(--gold); }
+
+    /* Back footer */
     .back-footer {
-      padding: 5rem 8rem;
+      padding: 6rem 10rem;
       border-top: 1px solid var(--border);
       display: flex;
       align-items: center;
       justify-content: space-between;
-      position: relative;
-      z-index: 1;
     }
 
     .back-footer a {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.8rem;
-      font-size: 1.3rem;
-      font-weight: 600;
-      letter-spacing: 0.1rem;
+      font-size: 1.1rem;
       text-transform: uppercase;
+      letter-spacing: 0.2rem;
       color: var(--muted);
-      transition: color 0.2s;
+      transition: color 0.3s;
     }
 
     .back-footer a:hover { color: var(--gold); }
 
     .back-footer-copy {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.6rem;
-      font-style: italic;
+      font-size: 1.2rem;
       color: var(--muted);
+      letter-spacing: 0.05rem;
     }
 
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(16px); }
+    @keyframes reveal {
+      from { opacity: 0; transform: translateY(30px); }
       to   { opacity: 1; transform: translateY(0); }
     }
 
     @media (max-width: 768px) {
-      nav, .hero, .stack-row, .section, .back-footer {
-        padding-left: 3rem;
-        padding-right: 3rem;
+      nav, .section, .back-footer {
+        padding-left: 4rem;
+        padding-right: 4rem;
       }
-
-      .hero::before { left: 3rem; }
-      .hero h1 { font-size: 7rem; }
-
-      .feature-row {
-        grid-template-columns: 1fr;
-        gap: 1rem;
-      }
-
-      .craft-grid { grid-template-columns: 1fr; }
+      .hero h1 { font-size: 5rem; }
     }
   </style>
 </head>
 <body>
 
   <nav>
-    <div class="nav-brand">Focus Studio</div>
-    <a class="nav-back" href="index.html">
-      <i class="fa-solid fa-arrow-left"></i> Portfolio
-    </a>
+    <div class="nav-logo">Focus <span>Studio</span></div>
+    <a class="nav-link" href="index.html">Index</a>
   </nav>
 
   <section class="hero">
-    <div class="hero-bg-text">Focus</div>
-    <p class="hero-category">Project · HTML · CSS · JavaScript</p>
-    <h1>Focus<br /><em>Studio</em></h1>
-    <div class="hero-divider"></div>
-    <p class="hero-sub">
-      A refined photography studio website built to showcase visual artistry —
-      elegant gallery presentation, smooth interactions, and a layout
-      that puts the photography front and center.
+    <span class="hero-pre">Case Study // Editorial Presentation</span>
+    <h1>Capturing stillness through an <em>asymmetrical</em> frontend layout.</h1>
+    <p class="hero-desc">
+      A minimalist experience created for fine-art studio showcases. Built strictly with standard vanilla interfaces to protect frame scaling control ratios across layout dimensions.
     </p>
-    <div class="hero-actions">
-      <a href="https://alen-shibu.github.io/Focus_Studio/" target="_blank" rel="noopener" class="btn-gold">
-        <i class="fa-solid fa-arrow-up-right-from-square"></i> View Live
-      </a>
-      <a href="https://github.com/Alen-Shibu/Focus_Studio" target="_blank" rel="noopener" class="btn-line">
-        <i class="fa-brands fa-github"></i> Source Code
-      </a>
+    <div class="hero-links">
+      <a href="https://alen-shibu.github.io/Focus_Studio/" target="_blank" rel="noopener" class="btn-dark">Launch Gallery</a>
+      <a href="https://github.com/Alen-Shibu/Focus_Studio" target="_blank" rel="noopener" class="btn-line">Inspect Code</a>
     </div>
   </section>
 
-  <div class="stack-row">
-    <span class="tag">HTML5</span>
-    <span class="tag">CSS3</span>
-    <span class="tag">JavaScript</span>
-    <span class="tag">CSS Animations</span>
-    <span class="tag">Responsive Design</span>
-    <span class="tag">GitHub Pages</span>
-  </div>
-
   <div class="content">
-
-    <!-- Features -->
     <section class="section">
-      <p class="section-label">What was crafted</p>
-      <h2>The <em>Details</em></h2>
-      <div class="feature-list">
-        <div class="feature-row">
-          <div class="feature-num">01</div>
-          <div class="feature-info">
-            <h3>Elegant Gallery Layout</h3>
-            <p>Photography-first grid design that lets the images breathe. Carefully considered spacing and aspect ratios ensure every photo is displayed as intended.</p>
-          </div>
-        </div>
-        <div class="feature-row">
-          <div class="feature-num">02</div>
-          <div class="feature-info">
-            <h3>Smooth CSS Animations</h3>
-            <p>Scroll-triggered reveals, hover transitions, and page entrance animations built entirely with CSS — no JavaScript animation libraries needed.</p>
-          </div>
-        </div>
-        <div class="feature-row">
-          <div class="feature-num">03</div>
-          <div class="feature-info">
-            <h3>Fully Responsive</h3>
-            <p>Adapts gracefully from wide desktop displays down to mobile viewports. The gallery reflows naturally without breaking the visual hierarchy.</p>
-          </div>
-        </div>
-        <div class="feature-row">
-          <div class="feature-num">04</div>
-          <div class="feature-info">
-            <h3>Zero Dependencies</h3>
-            <p>Pure HTML, CSS, and vanilla JavaScript. No frameworks, no build steps, no npm — just clean code that loads instantly and works everywhere.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Craft notes -->
-    <section class="section">
-      <p class="section-label">Craft notes</p>
-      <h2><em>Intentional</em> Choices</h2>
-      <div class="craft-grid">
+      <p class="section-label">Aesthetic Core</p>
+      <h2>Design Philosophy</h2>
+      <div class="craft-showcase">
         <div class="craft-card">
-          <h4>No Framework</h4>
-          <p>A deliberate decision to write everything from scratch — reinforcing understanding of how layout, animation, and interaction work at the browser level before reaching for abstractions.</p>
+          <h4>Visual Asymmetry</h4>
+          <p>Deliberately shifting grid balance parameters away from default centralized lines. Creates spatial variance patterns that encourage visitor focus paths to scan natural image nodes.</p>
         </div>
         <div class="craft-card">
-          <h4>Photography-First Design</h4>
-          <p>Every design decision — spacing, color, typography — was made to support the photography, not compete with it. Dark palette, restrained UI, generous whitespace.</p>
-        </div>
-        <div class="craft-card">
-          <h4>Performance by Default</h4>
-          <p>CSS-only animations, optimised images, minimal JavaScript. The site loads fast because nothing unnecessary was added — a habit that carries into all my MERN projects.</p>
+          <h4>Typographic Hierarchy</h4>
+          <p>Pairing high-contrast editorial serifs with low-weight modern grotesques. Ensures copy readability metrics remain perfectly proportional to graphic frame areas.</p>
         </div>
         <div class="craft-card">
           <h4>Attention to Micro-interactions</h4>
@@ -489,14 +392,44 @@
       </div>
     </section>
 
+    <section class="section">
+      <p class="section-label">Exhibition</p>
+      <h2>Captured <em>Perspectives</em></h2>
+      <div class="studio-gallery">
+        <a href="#view1" class="studio-item">
+          <img src="assets/Focus_Studio.png" alt="Focus Studio Landing Screen Grid Layout" />
+          <div class="studio-overlay">
+            <h4>Minimalist Portfolio Index</h4>
+            <p>Clean asymmetric design patterns rendering content priority models elegantly.</p>
+          </div>
+        </a>
+        
+        <a href="#view2" class="studio-item">
+          <img src="assets/Focus_Studio.png" alt="Focus Studio Fluid Image Presentation View" />
+          <div class="studio-overlay">
+            <h4>Fluid Presentation Panels</h4>
+            <p>Pure execution tracking element aspect structures dynamically without latency frameworks.</p>
+          </div>
+        </a>
+
+        <a href="#view3" class="studio-item">
+          <img src="assets/Focus_Studio.png" alt="Focus Studio Mobile Optimization Interface Showcase" />
+          <div class="studio-overlay">
+            <h4>Handheld Form Fitting</h4>
+            <p>Fluid spatial alignment keeping visual elements balanced across all viewing monitors.</p>
+          </div>
+        </a>
+      </div>
+
+      <div id="view1" class="studio-lightbox"><a href="#_" class="close-studio-lb">dismiss ×</a><img src="assets/Focus_Studio.png" alt="Landing Display Grid View Capture" /></div>
+      <div id="view2" class="studio-lightbox"><a href="#_" class="close-studio-lb">dismiss ×</a><img src="assets/Focus_Studio.png" alt="Image Aspect Presentation Capture" /></div>
+      <div id="view3" class="studio-lightbox"><a href="#_" class="close-studio-lb">dismiss ×</a><img src="assets/Focus_Studio.png" alt="Handheld Device Responsiveness Showcase Capture" /></div>
+    </section>
   </div>
 
   <footer class="back-footer">
-    <a href="index.html">
-      <i class="fa-solid fa-arrow-left"></i> All Projects
-    </a>
-    <span class="back-footer-copy">Alen Shibu, 2025</span>
+    <a href="index.html">Return to Index</a>
+    <span class="back-footer-copy">Alen Shibu &copy; 2025</span>
   </footer>
-
 </body>
 </html>
