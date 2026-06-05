@@ -4,38 +4,36 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Alen Shibu | Full‑Stack Developer Portfolio</title>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-    />
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
+
     <!-- Header -->
-    <header class="header">
-      <a href="#home"><h1>Alen <span>Shibu</span></h1></a>
+    <header class="header" id="header">
+      <a class="logo" data-scroll="home"><h1>Alen <span>Shibu</span></h1></a>
       <i id="menu-icon" class="fa-solid fa-bars"></i>
       <nav class="nav" id="nav">
         <ul>
-          <li><a href="#home">Home</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#services">Services</a></li>
-          <li><a href="#projects">Projects</a></li>
+          <li><a data-scroll="home">Home</a></li>
+          <li><a data-scroll="about">About</a></li>
+          <li><a data-scroll="services">Services</a></li>
+          <li><a data-scroll="projects">Projects</a></li>
         </ul>
       </nav>
     </header>
 
     <!-- Home Section -->
-    <section class="home" id="home">
+    <section id="home" class="home">
       <div class="home-text slide-in-left">
         <h1>Hi I'm <br /><span>Alen</span></h1>
         <h2>I'm a <span>Full‑Stack Developer</span></h2>
-        <p>MERN specialist | API integration expert | Real-time applications</p>
+        <p>MERN specialist · API integration expert · Real-time applications</p>
         <div class="social-links">
-          <a target="_blank" href="https://github.com/Alen-Shibu"><i class="fa-brands fa-github"></i></a>
-          <a target="_blank" href="https://www.linkedin.com/in/alen-shibu-99502437a/"><i class="fa-brands fa-linkedin"></i></a>
-          <a target="_blank" href="https://www.instagram.com/_.callme_._._alen._/"><i class="fa-brands fa-instagram"></i></a>
-          <a target="_blank" href="https://wa.me/919207897400"><i class="fa-brands fa-whatsapp"></i></a>
+          <a href="https://github.com/Alen-Shibu" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i></a>
+          <a href="https://www.linkedin.com/in/alen-shibu-99502437a/" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin"></i></a>
+          <a href="https://www.instagram.com/_.callme_._._alen._/" target="_blank" rel="noopener"><i class="fa-brands fa-instagram"></i></a>
+          <a href="https://wa.me/919207897400" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i></a>
         </div>
       </div>
       <div class="home-image slide-in-right">
@@ -43,25 +41,28 @@
       </div>
     </section>
 
-    <!-- About Section (updated from CV) -->
-    <section class="about" id="about">
+    <!-- About Section -->
+    <section id="about" class="about">
       <div class="about-img">
-        <img src="assets/Alen.jpeg" alt="About" />
+        <img src="assets/Alen.jpeg" alt="About Alen" />
       </div>
       <div class="about-content">
         <h1>About Me</h1>
         <p>
-          "B.Tech student focused on full‑stack development using the MERN stack, with strong problem‑solving skills and hands‑on experience building real‑time and responsive applications. Experienced in developing projects that incorporate authentication, dynamic user interfaces, and efficient data handling. Passionate about writing clean, maintainable code and continuously improving through practical implementation, self‑learning, and exploring new technologies."
+          B.Tech student focused on full‑stack development using the MERN stack, with strong
+          problem‑solving skills and hands‑on experience building real‑time and responsive
+          applications. Passionate about writing clean, maintainable code and continuously
+          improving through practical implementation and self‑learning.
         </p>
         <div class="tab-titles">
-          <p class="tab-links active-link" onclick="opentab('skills')">Skills</p>
-          <p class="tab-links" onclick="opentab('experience')">Experience</p>
-          <p class="tab-links" onclick="opentab('education')">Education</p>
+          <p class="tab-links active-link" onclick="openTab(event, 'skills')">Skills</p>
+          <p class="tab-links" onclick="openTab(event, 'experience')">Experience</p>
+          <p class="tab-links" onclick="openTab(event, 'education')">Education</p>
         </div>
         <div class="tab-contents active-tab" id="skills">
           <ul>
             <li><span>⚡ Full‑Stack Developer (MERN)</span><br />React, Node.js, Express, MongoDB, Socket.io</li>
-            <li><span>🔌 API Integration Expert</span><br />REST APIs, JWT, third‑party integration, API testing</li>
+            <li><span>🔌 API Integration Expert</span><br />REST APIs, JWT, third‑party integrations, API testing</li>
             <li><span>🎨 Frontend & UI/UX</span><br />Tailwind CSS, Zustand, responsive design, Figma to Code</li>
             <li><span>🗄️ Backend & Databases</span><br />MySQL, MongoDB, Cloudinary, Git & GitHub</li>
             <li><span>🤖 AI Tools & Productivity</span><br />Prompt Writing, ChatGPT, GitHub Copilot, Claude AI</li>
@@ -76,129 +77,129 @@
         </div>
         <div class="tab-contents" id="education">
           <ul>
-            <li><span>2024 – 2028</span><br />Bachelor of Technology (CSE) – CGPA 7.67, College of Engineering, Kalloopara</li>
-            <li><span>2023 – 2024</span><br />12th Standard – 84% , Mar Dionysius School</li>
-            <li><span>2021 – 2022</span><br />10th Standard – 86% , Mar Dionysius School</li>
+            <li><span>2024 – 2028</span><br />B.Tech (CSE) – CGPA 7.67 · College of Engineering, Kalloopara</li>
+            <li><span>2023 – 2024</span><br />12th Standard – 84% · Mar Dionysius School</li>
+            <li><span>2021 – 2022</span><br />10th Standard – 86% · Mar Dionysius School</li>
           </ul>
         </div>
       </div>
     </section>
 
-    <!-- Services Section (updated: Full‑Stack, API, Custom Apps) -->
-    <section class="services" id="services">
+    <!-- Services Section -->
+    <section id="services" class="services">
       <h1>My Services</h1>
       <div class="services-container">
-        <!-- Service 1: Full-Stack Development -->
+
         <div class="service-box">
           <i class="fa-solid fa-layer-group"></i>
           <h3>Full‑Stack Dev</h3>
           <p>End‑to‑end web apps, real‑time dashboards, secure auth, MERN stack</p>
-          <a href="#" class="open" data-modal="modalFullstack">Read More</a>
+          <a class="open" data-modal="modalFullstack">Read More</a>
         </div>
         <div class="modal-container" id="modalFullstack">
           <div class="modal">
             <h2>Full‑Stack Development</h2>
             <p>I build scalable, production-ready applications using MongoDB, Express, React, Node.js. JWT authentication, role‑based access, real‑time features (Socket.io), and deployment on Vercel/Render.</p>
-            <ul style="text-align: left; font-size: 1.6rem; line-height: 1.8">
+            <ul>
               <li>✅ MERN stack mastery</li>
               <li>✅ Real‑time & live updates</li>
               <li>✅ Database design & optimisation</li>
               <li>✅ Full deployment & CI/CD</li>
             </ul>
-            <a href="#contact" class="close">Start a Project</a>
+            <a class="btn close-modal">Start a Project</a>
           </div>
         </div>
 
-        <!-- Service 2: API Integration & Testing -->
         <div class="service-box">
           <i class="fa-solid fa-plug"></i>
           <h3>API Integration</h3>
           <p>RESTful APIs, third‑party integration, thorough testing & documentation</p>
-          <a href="#" class="open" data-modal="modalApi">Read More</a>
+          <a class="open" data-modal="modalApi">Read More</a>
         </div>
         <div class="modal-container" id="modalApi">
           <div class="modal">
-            <h2>API Integration & Testing Expert</h2>
+            <h2>API Integration & Testing</h2>
             <p>Integrate payment gateways, Cloudinary, AI services or build robust custom APIs with complete validation, JWT, and webhooks.</p>
-            <ul style="text-align: left; font-size: 1.6rem; line-height: 1.8">
+            <ul>
               <li>✅ Custom API development (Node.js + Express)</li>
               <li>✅ Third‑party integrations (Stripe, maps, etc.)</li>
               <li>✅ Postman testing & automated suites</li>
               <li>✅ Secure authentication & error handling</li>
             </ul>
-            <a href="#contact" class="close">Integrate APIs</a>
+            <a class="btn close-modal">Integrate APIs</a>
           </div>
         </div>
 
-        <!-- Service 3: Custom Web Apps (MERN) -->
         <div class="service-box">
           <i class="fa-solid fa-laptop-code"></i>
           <h3>Custom Web Apps</h3>
           <p>Tailored business solutions, task managers, chat platforms & dashboards</p>
-          <a href="#" class="open" data-modal="modalCustom">Read More</a>
+          <a class="open" data-modal="modalCustom">Read More</a>
         </div>
         <div class="modal-container" id="modalCustom">
           <div class="modal">
             <h2>Custom Web Application Development</h2>
             <p>From concept to deployment — I create fully customised web apps that solve real business problems. Role‑based systems, real‑time collaboration, and pixel‑perfect UI.</p>
-            <ul style="text-align: left; font-size: 1.6rem; line-height: 1.8">
+            <ul>
               <li>✅ Real‑time collaborative tools</li>
               <li>✅ Role‑based dashboards & CRUD apps</li>
               <li>✅ Responsive & modern interfaces</li>
               <li>✅ Performance & clean code</li>
             </ul>
-            <a href="#contact" class="close">Build Your App</a>
+            <a class="btn close-modal">Build Your App</a>
           </div>
         </div>
+
       </div>
     </section>
 
-    <!-- Projects Section (Echo replaces ChitChat) -->
-    <section class="projects" id="projects">
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
       <h1>My Projects</h1>
       <div class="project-box">
-        <!-- Focus Studio -->
-        <div class="project-card">
+
+        <div class="project-card" onclick="location.href='project-focus-studio.html'">
           <img src="assets/Focus_Studio.png" alt="Focus Studio" />
           <h3>Focus Studio</h3>
-          <p>Responsive photo studio website • HTML/CSS/JS • elegant gallery</p>
+          <p>Responsive photo studio website · HTML/CSS/JS · elegant gallery</p>
           <div class="project-btns">
-            <a href="https://github.com/Alen-Shibu/Focus_Studio" target="_blank" class="btn">Review Work</a>
-            <a href="https://alen-shibu.github.io/Focus_Studio/" target="_blank" class="btn">Live Demo</a>
+            <a href="https://github.com/Alen-Shibu/Focus_Studio" target="_blank" rel="noopener" class="btn" onclick="event.stopPropagation()">GitHub</a>
+            <a href="https://alen-shibu.github.io/Focus_Studio/" target="_blank" rel="noopener" class="btn" onclick="event.stopPropagation()">Live Demo</a>
           </div>
         </div>
-        <!-- Echo - MERN Real-Time Chat -->
-        <div class="project-card">
-          <img src="assets/Echo.png" alt="Echo Chat App" onerror="this.src='assets/chat.png';" />
-          <h3>Echo — <br>Real‑time Chat</h3>
-          <p>Production‑grade MERN chat app • Socket.io • JWT • Cloudinary • Zustand</p>
+
+        <div class="project-card" onclick="location.href='project-echo.html'">
+          <img src="assets/chat.png" alt="Echo Chat App" />
+          <h3>Echo — Real‑time Chat</h3>
+          <p>Production‑grade MERN chat app · Socket.io · JWT · Cloudinary · Zustand</p>
           <div class="project-btns">
-            <a href="https://github.com/Alen-Shibu/Echo.git" target="_blank" class="btn">Review Work</a>
-            <a href="https://echo-ashen-gamma.vercel.app" target="_blank" class="btn">Live Demo</a>
+            <a href="https://github.com/Alen-Shibu/Echo.git" target="_blank" rel="noopener" class="btn" onclick="event.stopPropagation()">GitHub</a>
+            <a href="https://echo-ashen-gamma.vercel.app" target="_blank" rel="noopener" class="btn" onclick="event.stopPropagation()">Live Demo</a>
           </div>
         </div>
-        <!-- TaskFlow -->
-        <div class="project-card">
+
+        <div class="project-card" onclick="location.href='project-adbite.html'">
           <img src="assets/adbite.png" alt="Adbite" />
           <h3>Adbite</h3>
-          <p>Redesigned Website with admin panel</p>
+          <p>Redesigned brand marketing website with full admin panel CMS</p>
           <div class="project-btns">
-            <a href="https://github.com/Alen-Shibu/Adbite-redesign.git" target="_blank" class="btn">Review Work</a>
-            <a href="https://adbite-redesign.vercel.app/" target="_blank" class="btn">Live Demo</a>
+            <a href="https://github.com/Alen-Shibu/Adbite-redesign.git" target="_blank" rel="noopener" class="btn" onclick="event.stopPropagation()">GitHub</a>
+            <a href="https://adbite-redesign.vercel.app/" target="_blank" rel="noopener" class="btn" onclick="event.stopPropagation()">Live Demo</a>
           </div>
         </div>
+
       </div>
     </section>
 
     <!-- Footer -->
     <footer>
       <div class="social-links">
-        <a target="_blank" href="https://github.com/Alen-Shibu"><i class="fa-brands fa-github"></i></a>
-        <a target="_blank" href="https://www.linkedin.com/in/alen-shibu-99502437a/"><i class="fa-brands fa-linkedin"></i></a>
-        <a target="_blank" href="https://www.instagram.com/_.callme_._._alen._/"><i class="fa-brands fa-instagram"></i></a>
-        <a target="_blank" href="https://wa.me/919207897400"><i class="fa-brands fa-whatsapp"></i></a>
+        <a href="https://github.com/Alen-Shibu" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i></a>
+        <a href="https://www.linkedin.com/in/alen-shibu-99502437a/" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin"></i></a>
+        <a href="https://www.instagram.com/_.callme_._._alen._/" target="_blank" rel="noopener"><i class="fa-brands fa-instagram"></i></a>
+        <a href="https://wa.me/919207897400" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i></a>
       </div>
-      <p>&copy; 2025 Alen Shibu — Full‑Stack Developer | All Rights Reserved</p>
+      <p>&copy; 2025 Alen Shibu — Full‑Stack Developer · All Rights Reserved</p>
     </footer>
 
     <script src="script.js"></script>
