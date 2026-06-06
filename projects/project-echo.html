@@ -14,7 +14,25 @@
       box-sizing: border-box;
       text-decoration: none;
       list-style: none;
+    }   
+    
+    body:has(.cyber-lightbox:target) nav {
+      display: none;
     }
+
+    body:has(.cyber-lightbox:target) .back-footer {
+      display: none;
+    }
+    body:has(.cyber-lightbox:target) {
+      overflow: hidden;
+    }
+
+    body:has(.cyber-lightbox:target) nav,
+    body:has(.cyber-lightbox:target) .back-footer {
+      opacity: 0;
+      pointer-events: none;
+    }
+
 
     :root {
       --bg:        #050a05;

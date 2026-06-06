@@ -16,6 +16,17 @@
       list-style: none;
     }
 
+    body:has(.lightbox:target) nav {
+      display: none;
+    }
+
+    body:has(.lightbox:target) .back-footer {
+      display: none;
+    }
+    body:has(.lightbox:target) {
+      overflow: hidden;
+    }
+
     :root {
       --bg:      #080808;
       --surface: #101010;
